@@ -13,16 +13,28 @@
 		@import "css/screen.css";
 	</style>
 	
+	<script src="http://platform.twitter.com/anywhere.js?id=SgLHvjCwTpOHATcVJSeEKA&amp;v=1"></script>
+	
 </head>
 
 <body>
 
-	<ul id="MainMenu">
+	<ul id="TopMenu">
 		<li><a href="schedule.html">Global Schedule</a></li>
 		<li><a href="contest.html">Contest Info</a></li>
 		<li><a href="shows.html">New Shows</a></li>
 		<li><a href="twitter.html">Twitter</a></li>
 	</ul>
+
+	<div id="TweetBox"></div>
+	
+	<script type="text/javascript">
+	//<![CDATA[
+		twttr.anywhere(function (T) {
+			T("#TweetBox").tweetBox();
+		});
+	//]]>
+	</script>
 
 	<p class="center">
 		<a href="schedule.html">Global Schedule</a> | 
