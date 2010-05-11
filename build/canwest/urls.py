@@ -13,6 +13,9 @@ urlpatterns = patterns('',
     url(r"^contests/$", "contests.views.list", name="contests_list"),
     
     # Shows
-    url(r"^shows/$", "contests.views.list", name="shows_list"),
-    url(r"^shows/(?P<slug>[-\w]+)/$", "contests.views.detail", name="shows_detail"),
+    url(r"^shows/$", "shows.views.list", name="shows_list"),
+    url(r"^shows/(?P<slug>[-\w]+)/$", "shows.views.detail", name="shows_detail"),
+    
+    # Schedules
+    url(r"^schedules/$", "schedules.views.list", name="schedules_list"),
 )
