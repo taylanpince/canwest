@@ -51,7 +51,9 @@ INSTALLED_APPS = (
     'django_extensions',
     'south',
     
-    
+    'contests',
+    'schedules',
+    'shows',
 )
 
 try:

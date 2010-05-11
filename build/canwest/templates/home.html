@@ -4,10 +4,10 @@
 {% block content %}
 
 <ul id="MainMenu">
-	<li><a href="schedule.html">Global Schedule</a></li>
-	<li><a href="contest.html">Contest Info</a></li>
-	<li><a href="shows.html">New Shows</a></li>
-	<li><a href="twitter.html">Twitter</a></li>
+	<li><a href="{% url schedules_list %}">Global Schedule</a></li>
+	<li><a href="{% url contests_list %}">Contest Info</a></li>
+	<li><a href="{% url shows_list %}">New Shows</a></li>
+	<li><a href="#">Twitter</a></li>
 </ul>
 
 {% endblock %}

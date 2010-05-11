@@ -1,2 +1,4 @@
 *.pyc
-settings_local.py
+build/canwest/settings_local.py
+build/canwest/media/admin
+build/canwest/media/files

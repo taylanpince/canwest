@@ -9,8 +9,8 @@
 	<title>Canwest Coming Attractions</title>
 	
 	<style type="text/css">
-		@import "css/reset.css";
-		@import "css/screen.css";
+		@import "{{ MEDIA_URL }}css/reset.css";
+		@import "{{ MEDIA_URL }}css/screen.css";
 	</style>
 	
 </head>
@@ -20,10 +20,10 @@
 	{% block content %}{% endblock %}
 	
 	<p class="center">
-		<a href="schedule.html">Global Schedule</a> | 
-		<a href="contest.html">Contest Info</a> | 
-		<a href="shows.html">New Shows</a> | 
-		<a href="twitter.html">Twitter</a>
+		<a href="{% url schedules_list %}">Global Schedule</a> | 
+		<a href="{% url contests_list %}">Contest Info</a> | 
+		<a href="{% url shows_list %}">New Shows</a> | 
+		<a href="#">Twitter</a>
 	</p>
 
 	<p class="center">
