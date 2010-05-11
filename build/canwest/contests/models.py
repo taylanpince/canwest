@@ -7,6 +7,7 @@ class Contest(models.Model):
     A simple contest with title, copy and sponsors
     """
     title = models.CharField(_("Title"), max_length=255)
+    slug = models.SlugField(_("Slug"), max_length=255)
     description = models.TextField(_("Description"), blank=True)
 
     class Meta:
@@ -24,6 +25,7 @@ class Sponsor(models.Model):
     name = models.CharField(_("Name"), max_length=255)
     url = models.URLField(_("URL"), blank=True, verify_exists=False)
     logo = models.ImageField(_("Logo"), upload_to="files/sponsors")
+    contest = models.ForeignKey(Contest, verbose_name=_("Contest"), related_name="sponsors")
 
     class Meta:
         verbose_name = _("Sponsor")

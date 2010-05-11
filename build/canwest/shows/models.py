@@ -7,6 +7,7 @@ class Show(models.Model):
     A TV show with title, description and photo
     """
     title = models.CharField(_("Title"), max_length=255)
+    slug = models.SlugField(_("Slug"), max_length=255)
     blurb = models.TextField(_("Blurb"), blank=True)
     description = models.TextField(_("Description"), blank=True)
     photo = models.ImageField(_("Photo"), upload_to="files/shows")
