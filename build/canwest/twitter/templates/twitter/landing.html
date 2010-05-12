@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if form %}
-<form method="POST" action="{% url twitter_update_status %}">
+<form method="POST" action="{% url twitter_update %}">
 	{{ form.as_p }}
 	<p><input type="submit" value="Send" /></p>
 </form>

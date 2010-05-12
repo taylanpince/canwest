@@ -31,7 +31,7 @@ def landing(request):
     }, context_instance=RequestContext(request))
 
 
-def update_status(request):
+def update(request):
     """
     Update user's Twitter status
     """
