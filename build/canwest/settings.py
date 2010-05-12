@@ -3,8 +3,8 @@ import os
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-SERVER_EMAIL = 'errors@canwest.com'
-DEFAULT_FROM_EMAIL = 'no-reply@canwest.com'
+SERVER_EMAIL = 'errors@canwest.vortexmobile.ca'
+DEFAULT_FROM_EMAIL = 'no-reply@canwest.vortexmobile.ca'
 
 ADMINS = (
     ('Taylan Pince', 'taylanpince@gmail.com'),

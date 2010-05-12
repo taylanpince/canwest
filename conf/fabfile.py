@@ -5,7 +5,7 @@ from fabric.contrib.console import confirm
 env.root_dir = "/home/taylan/sites/canwest"
 env.project_dir = "%s/src/canwest" % env.root_dir
 env.hosts = [
-    "173.203.204.218",
+    "173.203.118.186",
 ]
 
 def deploy():
