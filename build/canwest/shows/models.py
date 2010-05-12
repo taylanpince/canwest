@@ -17,6 +17,12 @@ class ShowCategory(models.Model):
     def __unicode__(self):
         return self.title
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ("shows_category", (), {
+            "category_slug": self.slug,
+        })
+
 
 class Show(models.Model):
     """
@@ -36,3 +42,10 @@ class Show(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ("shows_detail", (), {
+            "category_slug": self.category.slug,
+            "slug": self.slug,
+        })

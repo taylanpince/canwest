@@ -19,7 +19,7 @@ def category(request, category_slug):
     """
     A list of all shows in a given category
     """
-    category = get_object_or_404(ShowCategory, slug=slug)
+    category = get_object_or_404(ShowCategory, slug=category_slug)
 
     return render_to_response("shows/category.html", {
         "category": category,

@@ -1,0 +1,18 @@
+{% extends "sub.html" %}
+
+{% load thumbnail %}
+
+{% block title %}{{ block.super }} New Shows: {{ category.title }}{% endblock %}
+
+
+{% block content %}
+
+<h1>{{ category.title }}</h1>
+
+<ul>
+	{% for show in category.shows.all %}
+	<li><a href="{{ show.get_absolute_url }}"><img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" /></a></li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

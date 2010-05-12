@@ -1,5 +1,8 @@
 {% extends "sub.html" %}
 
+{% load thumbnail %}
+{% load markup %}
+
 {% block title %}{{ block.super }} Contest Info{% endblock %}
 
 
@@ -9,12 +12,17 @@
 
 {% for contest in contests %}
 <h2>{{ contest.title }}</h2>
-<p>{{ contest.description }}</p>
+
+{{ contest.description|markdown }}
 
 {% if contest.sponsors.count %}
 <ul>
 	{% for sponsor in contest.sponsors.all %}
-	<li>{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank"><img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}" /></a>{% else %}<img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}" />{% endif %}</li>
+	<li>
+		{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
+		<img src="{% thumbnail sponsor.logo.name 300x100 %}" alt="{{ sponsor.name }}" />
+		{% if sponsor.url %}</a>{% endif %}
+	</li>
 	{% endfor %}
 </ul>
 {% endif %}

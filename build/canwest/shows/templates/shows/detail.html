@@ -1,0 +1,20 @@
+{% extends "sub.html" %}
+
+{% load thumbnail %}
+{% load markup %}
+
+{% block title %}{{ block.super }} {{ show.title }}{% endblock %}
+
+
+{% block content %}
+
+<h1>{{ show.category.title }}</h1>
+
+<img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" />
+
+{% if show.photo %}<img src="{% thumbnail show.photo.name 96x128 %}" alt="{{ show.title }}" class="right" />{% endif %}
+
+{{ show.blurb|markdown }}
+{{ show.description|markdown }}
+
+{% endblock %}
