@@ -56,7 +56,11 @@ INSTALLED_APPS = (
     'contests',
     'schedules',
     'shows',
+    'twitter',
 )
+
+TWITTER_CONSUMER_KEY = 'Qi0PXu0ZBrSwYv2ERDb45g'
+TWITTER_CONSUMER_SECRET = 'RZrqynBZwhewuhpZx3nkTvAKnawjTBYMVNPI73BdHU'
 
 try:
     from settings_local import *

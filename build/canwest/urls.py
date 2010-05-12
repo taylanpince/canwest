@@ -24,4 +24,7 @@ urlpatterns = patterns('',
     
     # Schedules
     url(r"^schedules/$", "schedules.views.list", name="schedules_list"),
+    
+    # Twitter
+    (r'^twitter/', include('twitter.urls')),
 )
