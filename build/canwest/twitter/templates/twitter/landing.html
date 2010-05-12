@@ -1,0 +1,15 @@
+{% extends "twitter/base.html" %}
+
+
+{% block content %}
+
+{% if form %}
+<form method="POST" action="{% url twitter_update_status %}">
+	{{ form.as_p }}
+	<p><input type="submit" value="Send" /></p>
+</form>
+{% else %}
+<p><a href="{% url twitter_auth %}">Sign in with Twitter</a></p>
+{% endif %}
+
+{% endblock %}

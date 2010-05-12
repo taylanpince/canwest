@@ -1,6 +1,6 @@
-import oauth
-
 from django.conf import settings
+
+from twitter import oauth
 
 
 signature_method = oauth.OAuthSignatureMethod_HMAC_SHA1()

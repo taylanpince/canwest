@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 
 
-urlpatterns = patterns('twitter_app.views',
+urlpatterns = patterns('twitter.views',
     url(r'^$', 'landing', name='twitter_landing'),
     url(r'^auth/$', 'auth', name='twitter_auth'),
     url(r'^auth/complete/$', 'auth_complete', name='twitter_auth_complete'),

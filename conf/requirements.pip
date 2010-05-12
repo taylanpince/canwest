@@ -3,4 +3,3 @@ django-extensions==0.4.1
 south==0.6
 sorl-thumbnail==3.2.5
 Markdown==2.0.3
-oauth==1.0.1

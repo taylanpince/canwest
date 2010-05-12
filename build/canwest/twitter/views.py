@@ -21,9 +21,13 @@ def landing(request):
     """
     Twitter landing page with status update form and search results
     """
+    if request.session.has_key("access_token"):
+        form = StatusUpdateForm()
+    else:
+        form = None
+
     return render_to_response("twitter/landing.html", {
-        "form": StatusUpdateForm(),
-        "has_auth": request.session.has_key("access_token"),
+        "form": form,
     }, context_instance=RequestContext(request))
 
 
