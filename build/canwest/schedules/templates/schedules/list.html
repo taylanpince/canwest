@@ -1,0 +1,31 @@
+{% extends "sub.html" %}
+
+{% block title %}{{ block.super }} Global Schedule{% endblock %}
+
+
+{% block content %}
+
+<h1>Global Schedule</h1>
+
+<p>
+	<a href="#monday">MONDAY</a> | 
+	<a href="#tuesday">TUESDAY</a> | 
+	<a href="#wednesday">WEDNESDAY</a> | 
+	<a href="#thursday">THURSDAY</a> | 
+	<a href="#friday">FRIDAY</a> | 
+	<a href="#saturday">SATURDAY</a> | 
+	<a href="#sunday">SUNDAY</a>
+</p>
+
+{% regroup scheduled_items by day as days %}
+
+{% for day in days %}
+<h2 id="{{ day.grouper|lower }}">{{ day.grouper|upper }}</h2>
+<ul>
+	{% for item in day.list %}
+	<li><strong>{{ item.start_time|time:"g.i" }}</strong> {{ item.title }}</li>
+	{% endfor %}
+</ul>
+{% endfor %}
+
+{% endblock %}

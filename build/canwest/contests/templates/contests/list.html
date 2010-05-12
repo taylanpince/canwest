@@ -1,0 +1,23 @@
+{% extends "sub.html" %}
+
+{% block title %}{{ block.super }} Contest Info{% endblock %}
+
+
+{% block content %}
+
+<h1>Contests</h1>
+
+{% for contest in contests %}
+<h2>{{ contest.title }}</h2>
+<p>{{ contest.description }}</p>
+
+{% if contest.sponsors.count %}
+<ul>
+	{% for sponsor in contest.sponsors.all %}
+	<li>{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank"><img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}" /></a>{% else %}<img src="{{ sponsor.logo.url }}" alt="{{ sponsor.name }}" />{% endif %}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

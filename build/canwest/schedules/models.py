@@ -3,27 +3,27 @@ from django.utils.translation import ugettext_lazy as _
 
 
 DAY_CHOICES = (
-    (0, _("Monday")),
-    (1, _("Tuesday")),
-    (2, _("Wednesday")),
-    (3, _("Thursday")),
-    (4, _("Friday")),
-    (5, _("Saturday")),
-    (6, _("Sunday")),
+    ("monday", _("Monday")),
+    ("tuesday", _("Tuesday")),
+    ("wednesday", _("Wednesday")),
+    ("thursday", _("Thursday")),
+    ("friday", _("Friday")),
+    ("saturday", _("Saturday")),
+    ("sunday", _("Sunday")),
 )
 
 
-class ScheduleItem(models.Model):
+class ScheduledItem(models.Model):
     """
     An item in the schedule, tied to a specific day
     """
     title = models.CharField(_("Title"), max_length=255)
     start_time = models.TimeField(_("Start Time"))
-    day = models.PositiveSmallIntegerField(_("Day"), choices=DAY_CHOICES)
+    day = models.CharField(_("Day"), choices=DAY_CHOICES, max_length=10)
 
     class Meta:
-        verbose_name = _("Schedule Item")
-        verbose_name_plural = _("Schedule Items")
+        verbose_name = _("Scheduled Item")
+        verbose_name_plural = _("Scheduled Items")
 
     def __unicode__(self):
         return u"%(title)s (%(time)s on %(day)s)" % {
