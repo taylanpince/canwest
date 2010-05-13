@@ -1,3 +1,5 @@
+from urllib import urlencode
+
 from django.conf import settings
 
 from twitter import oauth
@@ -6,17 +8,19 @@ from twitter import oauth
 signature_method = oauth.OAuthSignatureMethod_HMAC_SHA1()
 
 SERVER = getattr(settings, 'OAUTH_SERVER', 'twitter.com')
+SEARCH_SERVER = getattr(settings, 'TWITTER_SEARCH_SERVER', 'search.twitter.com')
+
 REQUEST_TOKEN_URL = getattr(settings, 'OAUTH_REQUEST_TOKEN_URL', 'https://%s/oauth/request_token' % SERVER)
 ACCESS_TOKEN_URL = getattr(settings, 'OAUTH_ACCESS_TOKEN_URL', 'https://%s/oauth/access_token' % SERVER)
 AUTHORIZATION_URL = getattr(settings, 'OAUTH_AUTHORIZATION_URL', 'http://%s/oauth/authorize' % SERVER)
 
-CONSUMER_KEY = getattr(settings, 'TWITTER_CONSUMER_KEY', 'YOUR_KEY')
-CONSUMER_SECRET = getattr(settings, 'TWITTER_CONSUMER_SECRET', 'YOUR_SECRET')
+CONSUMER_KEY = getattr(settings, 'TWITTER_CONSUMER_KEY', '')
+CONSUMER_SECRET = getattr(settings, 'TWITTER_CONSUMER_SECRET', '')
 
-# We use this URL to check if Twitters oAuth worked
-TWITTER_CHECK_AUTH = 'https://twitter.com/account/verify_credentials.json'
-TWITTER_FRIENDS = 'https://twitter.com/statuses/friends.json'
-TWITTER_UPDATE_STATUS = 'https://twitter.com/statuses/update.json'
+TWITTER_CHECK_AUTH = 'https://%s/account/verify_credentials.json' % SERVER
+TWITTER_FRIENDS = 'https://%s/statuses/friends.json' % SERVER
+TWITTER_UPDATE_STATUS = 'https://%s/statuses/update.json' % SERVER
+TWITTER_SEARCH = 'http://%s/search.json' % SEARCH_SERVER
 
 
 def request_oauth_resource(consumer, url, access_token, parameters=None, signature_method=signature_method, http_method="GET"):
@@ -113,3 +117,20 @@ def update_status(consumer, connection, access_token, status):
     json = fetch_response(oauth_request, connection)
 
     return json
+
+
+def get_search_results(connection, keywords):
+    """
+    Access twitter's search API for specific keywords
+    """
+    connection.request("GET", "%(url)s?%(query)s" % {
+        "url": TWITTER_SEARCH,
+        "query": urlencode({
+            "q": keywords,
+        })
+    })
+
+    response = connection.getresponse()
+    s = response.read()
+
+    return s

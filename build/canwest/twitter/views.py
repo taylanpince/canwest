@@ -15,6 +15,7 @@ from twitter.utils import *
 
 CONSUMER = oauth.OAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET)
 CONNECTION = httplib.HTTPSConnection(SERVER)
+SEARCH_CONNECTION = httplib.HTTPConnection(SEARCH_SERVER)
 
 
 def landing(request):
@@ -26,8 +27,12 @@ def landing(request):
     else:
         form = None
 
+    json = get_search_results(SEARCH_CONNECTION, "#Canwest")
+    results = simplejson.loads(json)
+
     return render_to_response("twitter/landing.html", {
         "form": form,
+        "results": results.get("results", None),
     }, context_instance=RequestContext(request))
 
 
