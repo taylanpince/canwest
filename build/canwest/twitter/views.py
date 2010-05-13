@@ -44,8 +44,8 @@ def update(request):
             return HttpResponseRedirect(reverse("twitter_error"))
 
         token = oauth.OAuthToken.from_string(access_token)   
-        response = update_status(CONSUMER, CONNECTION, access_token, form.cleaned_data.get("status"))
-        print response
+        response = update_status(CONSUMER, CONNECTION, token, form.cleaned_data.get("status"))
+
         if response:
             return HttpResponseRedirect(reverse("twitter_landing"))
 
