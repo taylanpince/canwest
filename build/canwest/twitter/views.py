@@ -3,6 +3,7 @@ import httplib
 import oauth
 import time
 
+from django.core.cache import cache
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -16,6 +17,7 @@ from twitter.utils import *
 CONSUMER = oauth.OAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET)
 CONNECTION = httplib.HTTPSConnection(SERVER)
 SEARCH_CONNECTION = httplib.HTTPConnection(SEARCH_SERVER)
+SEARCH_RESULTS_KEY = "twitter_search_results"
 
 
 def landing(request):
@@ -27,8 +29,13 @@ def landing(request):
     else:
         form = None
 
-    json = get_search_results(SEARCH_CONNECTION, "#Canwest")
-    results = simplejson.loads(json)
+    results = cache.get(SEARCH_RESULTS_KEY)
+
+    if not results:
+        json = get_search_results(SEARCH_CONNECTION, "#Canwest")
+        results = simplejson.loads(json)
+
+        cache.set(SEARCH_RESULTS_KEY, results, 30 * 60)
 
     return render_to_response("twitter/landing.html", {
         "form": form,
@@ -52,7 +59,11 @@ def update(request):
         response = update_status(CONSUMER, CONNECTION, token, form.cleaned_data.get("status"))
 
         if response:
+            cache.delete(SEARCH_RESULTS_KEY)
+
             return HttpResponseRedirect(reverse("twitter_landing"))
+        else:
+            return HttpResponseRedirect(reverse("twitter_error"))
 
     return render_to_response("twitter/update.html", {
         "form": form,

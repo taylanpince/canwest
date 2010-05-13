@@ -24,6 +24,8 @@ MEDIA_URL = '/media/'
 
 SECRET_KEY = 'w8x-%@cm#8&ve7ef&-ep7r9dxmayyy-9!n1!zt+rpiu^qbm2&-'
 
+CACHE_BACKEND = 'memcached://127.0.0.1:11211/'
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
