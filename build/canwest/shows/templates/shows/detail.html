@@ -14,9 +14,11 @@
 
 <img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" class="header" />
 
-{% if show.photo %}<img src="{% thumbnail show.photo.name 96x128 %}" alt="{{ show.title }}" class="right" />{% endif %}
+<div class="content">
+	{% if show.photo %}<img src="{% thumbnail show.photo.name 96x128 %}" alt="{{ show.title }}" class="right" />{% endif %}
 
-{{ show.blurb|markdown }}
-{{ show.description|markdown }}
+	{{ show.blurb|markdown }}
+	{{ show.description|markdown }}
+</div>
 
 {% endblock %}

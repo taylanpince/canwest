@@ -3,19 +3,21 @@
 
 {% block content %}
 
-{% if form %}
-{% include "twitter/update_form.html" %}
-{% else %}
-<p class="center top-margin"><a href="{% url twitter_auth %}"><img src="{{ MEDIA_URL }}images/btn-twitter-sign-in.png" alt="Sign in with Twitter" /></a></p>
-{% endif %}
+<div class="content">
+	{% if form %}
+	{% include "twitter/update_form.html" %}
+	{% else %}
+	<p class="center top-margin"><a href="{% url twitter_auth %}"><img src="{{ MEDIA_URL }}images/btn-twitter-sign-in.png" alt="Sign in with Twitter" /></a></p>
+	{% endif %}
 
-{% if results %}
-<p class="center"><strong>What other people are saying:</strong></p>
-<ul id="TwitterList">
-	{% for result in results %}
-	<li><strong>{{ result.from_user }}:</strong> {{ result.text }}</li>
-	{% endfor %}
-</ul>
-{% endif %}
+	{% if results %}
+	<p class="center"><strong>What other people are saying:</strong></p>
+	<ul id="TwitterList">
+		{% for result in results %}
+		<li><strong>{{ result.from_user }}:</strong> {{ result.text }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</div>
 
 {% endblock %}

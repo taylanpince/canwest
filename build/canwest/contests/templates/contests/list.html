@@ -10,22 +10,24 @@
 
 {% block content %}
 
-{% for contest in contests %}
-<h2 class="top-margin">{{ contest.title }}</h2>
+<div class="content">
+	{% for contest in contests %}
+	<h2 class="top-margin">{{ contest.title }}</h2>
 
-{{ contest.description|markdown }}
+	{{ contest.description|markdown }}
 
-{% if contest.sponsors.count %}
-<ul class="sponsors">
-	{% for sponsor in contest.sponsors.all %}
-	<li>
-		{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
-		<img src="{% thumbnail sponsor.logo.name 300x100 %}" alt="{{ sponsor.name }}" />
-		{% if sponsor.url %}</a>{% endif %}
-	</li>
+	{% if contest.sponsors.count %}
+	<ul class="sponsors">
+		{% for sponsor in contest.sponsors.all %}
+		<li>
+			{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
+			<img src="{% thumbnail sponsor.logo.name 300x100 %}" alt="{{ sponsor.name }}" />
+			{% if sponsor.url %}</a>{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
 	{% endfor %}
-</ul>
-{% endif %}
-{% endfor %}
+</div>
 
 {% endblock %}

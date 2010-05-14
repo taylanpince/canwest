@@ -140,7 +140,7 @@ body.home #Container {
 ul.sponsors {
     overflow: hidden;
     position: static;
-    width: 320px;
+    width: 300px;
 }
 
 ul.sponsors li {
@@ -154,8 +154,12 @@ ul.sponsors li {
 }
 
 textarea {
-    width: 318px;
+    width: 298px;
     border: 1px solid #ccc;
+}
+
+div.content {
+    padding: 0px 10px 0px 10px;
 }
 
 /* @end */
