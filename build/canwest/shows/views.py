@@ -48,6 +48,7 @@ def home(request):
     """
     Renders the home page
     """
+    print request.META.get("HTTP_USER_AGENT")
     return render_to_response("home.html", {
         
     }, context_instance=RequestContext(request))

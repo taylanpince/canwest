@@ -107,7 +107,7 @@ ul li {
 
 #Container {
     margin: 0px auto 0px auto;
-    width: 320px;
+    width: 310px;
 }
 
 body.home #Container {
@@ -146,16 +146,8 @@ body.home #Container {
     font-size: 10px;
 }
 
-ul.sponsors {
-    overflow: hidden;
-    position: static;
-    width: 300px;
-}
-
-ul.sponsors li {
-    float: left;
-    display: inline;
-    margin: 0px 20px 0px 0px;
+p.sponsors img {
+    margin-right: 20px;
 }
 
 #TwitterList li {
@@ -180,7 +172,7 @@ div.content {
 #MainMenu {
     overflow: hidden;
     position: static;
-    width: 320px;
+    width: 310px;
     margin: 0px 0px 45px 0px;
 }
 
@@ -197,6 +189,7 @@ div.content {
     float: left;
     display: inline;
     margin: 0px;
+    padding: 0px;
     line-height: 1px !important;
     font-size: 1px !important;
 }
