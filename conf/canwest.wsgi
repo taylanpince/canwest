@@ -2,7 +2,7 @@ import os
 import sys
 import site
 
-site.addsitedir('/home/taylan/sites/canwest/lib/python2.5/site-packages')
+site.addsitedir('/home/taylan/sites/canwest/lib/python2.6/site-packages')
 
 sys.path.append("/home/taylan/sites/canwest/src/canwest/build")
 sys.path.append("/home/taylan/sites/canwest/src/canwest/build/canwest")
