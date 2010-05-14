@@ -1,13 +1,14 @@
 {% extends "sub.html" %}
 
+{% block shows_menu %}-active{% endblock %}
 {% block title %}{{ block.super }} New Shows{% endblock %}
 
 
 {% block content %}
 
-<ul>
+<ul id="MainMenu" class="top-margin">
 	{% for category in categories %}
-	<li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+	<li><a href="{{ category.get_absolute_url }}"><img src="{{ MEDIA_URL }}images/btn-{{ category.slug }}.png" alt="{{ category.title }}" /></a></li>
 	{% endfor %}
 </ul>
 

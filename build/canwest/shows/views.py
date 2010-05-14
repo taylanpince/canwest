@@ -23,6 +23,7 @@ def category(request, category_slug):
 
     return render_to_response("shows/category.html", {
         "category": category,
+        "USE_GLOBAL_TEMPLATE": category.global_template,
     }, context_instance=RequestContext(request))
 
 
@@ -34,4 +35,5 @@ def detail(request, category_slug, slug):
 
     return render_to_response("shows/detail.html", {
         "show": show,
+        "USE_GLOBAL_TEMPLATE": show.category.global_template,
     }, context_instance=RequestContext(request))

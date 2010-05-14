@@ -2,12 +2,14 @@
 
 {% load thumbnail %}
 
+
+{% block shows_menu %}-active{% endblock %}
 {% block title %}{{ block.super }} New Shows: {{ category.title }}{% endblock %}
 
 
 {% block content %}
 
-<h1>{{ category.title }}</h1>
+<img src="{{ MEDIA_URL }}images/title-{{ category.slug }}.png" alt="{{ category.title }}" class="header" />
 
 <ul>
 	{% for show in category.shows.all %}

@@ -3,20 +3,20 @@
 {% load thumbnail %}
 {% load markup %}
 
+
+{% block contest_menu %}-active{% endblock %}
 {% block title %}{{ block.super }} Contest Info{% endblock %}
 
 
 {% block content %}
 
-<h1>Contests</h1>
-
 {% for contest in contests %}
-<h2>{{ contest.title }}</h2>
+<h2 class="top-margin">{{ contest.title }}</h2>
 
 {{ contest.description|markdown }}
 
 {% if contest.sponsors.count %}
-<ul>
+<ul class="sponsors">
 	{% for sponsor in contest.sponsors.all %}
 	<li>
 		{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
