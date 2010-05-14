@@ -10,7 +10,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils import simplejson
 
-from admob.decorators import analytics
+from admob.decorators import admob_analytics
 from twitter.forms import StatusUpdateForm
 from twitter.utils import *
 
@@ -21,7 +21,7 @@ SEARCH_CONNECTION = httplib.HTTPConnection(SEARCH_SERVER)
 SEARCH_RESULTS_KEY = "twitter_search_results"
 
 
-@analytics
+@admob_analytics
 def landing(request):
     """
     Twitter landing page with status update form and search results

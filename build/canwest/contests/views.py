@@ -1,11 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from admob.decorators import analytics
+from admob.decorators import admob_analytics
 from contests.models import Contest
 
 
-@analytics
+@admob_analytics
 def list(request):
     """
     A list of all contests

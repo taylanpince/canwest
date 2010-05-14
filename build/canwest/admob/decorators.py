@@ -6,7 +6,7 @@ except ImportError:
 from admob import analytics
 
 
-def analytics(view):
+def admob_analytics(view):
     """
     Construct an AdMob analytics request.
     Requires admob.middleware.AdMobMiddleware.

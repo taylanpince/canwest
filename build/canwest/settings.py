@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.markup',
     
+    'admob',
     'django_extensions',
     'sorl.thumbnail',
     'south',
@@ -67,6 +68,7 @@ TWITTER_CONSUMER_SECRET = 'RZrqynBZwhewuhpZx3nkTvAKnawjTBYMVNPI73BdHU'
 
 ADMOB_PUBLISHER_ID = 'a14beda375ab4fa'
 ADMOB_ANALYTICS_ID = 'a14beda375ab4fa'
+ADMOB_TEST = False
 
 try:
     from settings_local import *
