@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 
+{% block class %}home{% endblock %}
+
 
 {% block content %}
 
+<img src="{{ MEDIA_URL }}images/logo-canwest.jpg" alt="Canwest Coming Attractions" id="Logo" />
+
 <ul id="MainMenu">
-	<li><a href="{% url schedules_list %}">Global Schedule</a></li>
-	<li><a href="{% url contests_list %}">Contest Info</a></li>
-	<li><a href="{% url shows_list %}">New Shows</a></li>
-	<li><a href="{% url twitter_landing %}">Twitter</a></li>
+	<li><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/btn-schedule-home.png" alt="Global Schedule" /></a></li>
+	<li><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/btn-contest-home.png" alt="Contest Info" /></a></li>
+	<li><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/btn-shows-home.png" alt="New Shows" /></a></li>
+	<li><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/btn-twitter-home.png" alt="Twitter" /></a></li>
 </ul>
 
 {% endblock %}

@@ -12,4 +12,5 @@ def list(request):
 
     return render_to_response("schedules/list.html", {
         "scheduled_items": scheduled_items,
+        "USE_GLOBAL_TEMPLATE": True,
     }, context_instance=RequestContext(request))

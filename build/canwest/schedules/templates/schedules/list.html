@@ -5,9 +5,9 @@
 
 {% block content %}
 
-<h1>Global Schedule</h1>
+<img src="{{ MEDIA_URL }}images/title-global-schedule.png" alt="Global Schedule" class="header" />
 
-<p>
+<p id="ScheduleMenu" class="center">
 	<a href="#monday">MONDAY</a> | 
 	<a href="#tuesday">TUESDAY</a> | 
 	<a href="#wednesday">WEDNESDAY</a> | 
@@ -19,13 +19,17 @@
 
 {% regroup scheduled_items by day as days %}
 
-{% for day in days %}
-<h2 id="{{ day.grouper|lower }}">{{ day.grouper|upper }}</h2>
-<ul>
-	{% for item in day.list %}
-	<li><strong>{{ item.start_time|time:"g.i" }}</strong> {{ item.title }}</li>
+<div id="ScheduleDays">
+	{% for day in days %}
+	<h2 id="{{ day.grouper|lower }}">{{ day.grouper|upper }}</h2>
+	<ul>
+		{% for item in day.list %}
+		<li class="{% if forloop.counter|divisibleby:"2" %}even{% else %}odd{% endif %}">
+			<strong>{{ item.start_time|time:"g.i" }}</strong> {{ item.title }}
+		</li>
+		{% endfor %}
+	</ul>
 	{% endfor %}
-</ul>
-{% endfor %}
+</div>
 
 {% endblock %}

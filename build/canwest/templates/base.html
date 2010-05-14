@@ -15,22 +15,24 @@
 	
 </head>
 
-<body>
+<body class="{% block class %}{% if USE_GLOBAL_TEMPLATE %}global{% endif %}{% endblock %}">
 
-	{% block header %}{% endblock %}
-	{% block content %}{% endblock %}
+	<div id="Container">
+		{% block header %}{% endblock %}
+		{% block content %}{% endblock %}
 	
-	<p class="center">
-		<a href="{% url schedules_list %}">Global Schedule</a> | 
-		<a href="{% url contests_list %}">Contest Info</a> | 
-		<a href="{% url shows_list %}">New Shows</a> | 
-		<a href="{% url twitter_landing %}">Twitter</a>
-	</p>
+		<p id="FooterMenu" class="center">
+			<a href="{% url schedules_list %}">Global Schedule</a> | 
+			<a href="{% url contests_list %}">Contest Info</a> | 
+			<a href="{% url shows_list %}">New Shows</a> | 
+			<a href="{% url twitter_landing %}">Twitter</a>
+		</p>
 
-	<p class="center">
-		<strong>Canwest Coming Attractions</strong><br />
-		&copy; Canwest 2010 | All Rights Reserved
-	</p>
+		<p id="Footer" class="center">
+			<strong>Canwest Coming Attractions</strong><br />
+			&copy; Canwest 2010 | All Rights Reserved
+		</p>
+	</div>
 
 </body>
 </html>

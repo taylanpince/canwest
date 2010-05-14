@@ -8,21 +8,36 @@
 /* @group Global */
 
 body {
-    
+    color: #fff;
+    line-height: 18px;
+    font: 12px Helvetica, Arial, sans-serif;
+    background: #ff821d url("../images/bg-regular.png") top left repeat-x;
+}
+
+body.home {
+    background-image: url("../images/bg-home.png");
+}
+
+body.global {
+    background-color: #000;
+    background-image: url("../images/bg-global.png");
 }
 
 a,
 a:link,
 a:visited,
 a:active {
-    
+    color: #fff;
+    text-decoration: none;
 }
 
+a:active,
 a:hover {
-    
+    text-decoration: underline;
 }
 
 p {
+    line-height: 18px;
     margin: 0px 0px 15px 0px;
 }
 
@@ -34,19 +49,110 @@ h1 {
     
 }
 
+h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+h3 {
+    
+}
+
 img.right {
     float: right;
     display: inline;
     margin: 0px 0px 10px 10px;
 }
 
+img.header {
+    margin: 0px 0px 15px 0px;
+}
+
 /* @end */
 
 
-/* @group Layout */
+/* @group Menus */
 
+#Container {
+    margin: 0px auto 0px auto;
+    width: 320px;
+}
+
+body.home #Container {
+    text-align: center;
+}
+
+#Logo {
+    margin: 0px 0px 25px 0px;
+}
+
+#ScheduleDays {
+    margin: 0px 0px 30px 0px;
+}
+
+#ScheduleDays h2 {
+    margin: 0px 0px 6px 0px;
+    padding: 4px 0px 2px 14px;
+    background: transparent url("../images/icon-global-arrow.png") top left no-repeat;
+}
+
+#ScheduleDays ul {
+    margin: 0px 0px 10px 0px;
+}
+
+#ScheduleDays li {
+    font-size: 14px;
+    padding: 2px 10px 2px 14px;
+    margin: 0px 0px 2px 0px;
+}
+
+#ScheduleDays li.odd {
+    background-color: #3d3d3d;
+}
+
+#Footer {
+    font-size: 10px;
+}
+
+/* @end */
+
+
+/* @group Menus */
+
+#TopMenu,
 #MainMenu {
-    
+    overflow: hidden;
+    position: static;
+    width: 320px;
+    margin: 0px 0px 45px 0px;
+}
+
+#TopMenu {
+    margin-bottom: 0px;
+}
+
+#TopMenu li,
+#MainMenu li {
+    float: left;
+    display: inline;
+    margin: 0px;
+    line-height: 1px;
+}
+
+#ScheduleMenu {
+    color: #e61023;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+#FooterMenu {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+body.global #FooterMenu {
+    color: #e61023;
 }
 
 /* @end */

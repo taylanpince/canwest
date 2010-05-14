@@ -6,10 +6,10 @@
 {% block header %}
 
 <ul id="TopMenu">
-	<li><a href="{% url schedules_list %}">Global Schedule</a></li>
-	<li><a href="{% url contests_list %}">Contest Info</a></li>
-	<li><a href="{% url shows_list %}">New Shows</a></li>
-	<li><a href="{% url twitter_landing %}">Twitter</a></li>
+	<li><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/btn-schedule{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block schedule_menu %}{% endblock %}.png" alt="Global Schedule" /></a></li>
+	<li><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/btn-contest{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block contest_menu %}{% endblock %}.png" alt="Contest Info" /></a></li>
+	<li><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/btn-shows{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block shows_menu %}{% endblock %}.png" alt="New Shows" /></a></li>
+	<li><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/btn-twitter{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block twitter_menu %}{% endblock %}.png" alt="Twitter" /></a></li>
 </ul>
 
 {% endblock %}
