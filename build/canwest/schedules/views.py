@@ -1,9 +1,11 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
+from admob.decorators import analytics
 from schedules.models import ScheduledItem
 
 
+@analytics
 def list(request):
     """
     A list of all scheduled items, grouped by day

@@ -1,9 +1,11 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
+from admob.decorators import analytics
 from shows.models import Show, ShowCategory
 
 
+@analytics
 def list(request):
     """
     A list of all show categories
@@ -15,6 +17,7 @@ def list(request):
     }, context_instance=RequestContext(request))
 
 
+@analytics
 def category(request, category_slug):
     """
     A list of all shows in a given category
@@ -27,6 +30,7 @@ def category(request, category_slug):
     }, context_instance=RequestContext(request))
 
 
+@analytics
 def detail(request, category_slug, slug):
     """
     Show details
@@ -36,4 +40,14 @@ def detail(request, category_slug, slug):
     return render_to_response("shows/detail.html", {
         "show": show,
         "USE_GLOBAL_TEMPLATE": show.category.global_template,
+    }, context_instance=RequestContext(request))
+
+
+@analytics
+def home(request):
+    """
+    Renders the home page
+    """
+    return render_to_response("home.html", {
+        
     }, context_instance=RequestContext(request))

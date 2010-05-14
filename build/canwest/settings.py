@@ -32,6 +32,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'admob.middleware.AdMobMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -63,6 +64,9 @@ INSTALLED_APPS = (
 
 TWITTER_CONSUMER_KEY = 'Qi0PXu0ZBrSwYv2ERDb45g'
 TWITTER_CONSUMER_SECRET = 'RZrqynBZwhewuhpZx3nkTvAKnawjTBYMVNPI73BdHU'
+
+ADMOB_PUBLISHER_ID = ''
+ADMOB_ANALYTICS_ID = 'a14beda375ab4fa'
 
 try:
     from settings_local import *

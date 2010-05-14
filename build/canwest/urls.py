@@ -10,9 +10,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     
     # Home
-    url(r"^$", "django.views.generic.simple.direct_to_template", {
-        "template": "home.html",
-    }, name="home"),
+    url(r"^$", "shows.views.home", name="home"),
     
     # Contests
     url(r"^contests/$", "contests.views.list", name="contests_list"),
