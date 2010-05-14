@@ -36,6 +36,15 @@ a:hover {
     text-decoration: underline;
 }
 
+a.small {
+    font-size: 10px;
+}
+
+a.left {
+    float: left;
+    display: inline;
+}
+
 p {
     line-height: 18px;
     margin: 0px 0px 15px 0px;
