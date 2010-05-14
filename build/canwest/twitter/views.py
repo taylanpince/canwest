@@ -27,7 +27,7 @@ def landing(request):
     if request.session.has_key("access_token"):
         form = StatusUpdateForm()
     else:
-        form = StatusUpdateForm()#None
+        form = None
 
     results = cache.get(SEARCH_RESULTS_KEY)
 
