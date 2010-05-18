@@ -70,6 +70,8 @@ ADMOB_PUBLISHER_ID = 'a14beda375ab4fa'
 ADMOB_ANALYTICS_ID = 'a14beda375ab4fa'
 ADMOB_TEST = False
 
+DEVICE_ATLAS_PATH = os.path.join(os.path.realpath(os.path.dirname(__file__)), 'devices/devices.json')
+
 try:
     from settings_local import *
 except:
