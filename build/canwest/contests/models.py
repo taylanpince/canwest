@@ -10,10 +10,12 @@ class Contest(models.Model):
     slug = models.SlugField(_("Slug"), max_length=255)
     description = models.TextField(_("Description"), blank=True)
     header = models.ImageField(_("Header Image"), upload_to="files/contests", blank=True, null=True)
+    order = models.SmallIntegerField(_("Order"), default=0)
 
     class Meta:
         verbose_name = _("Contest")
         verbose_name_plural = _("Contests")
+        ordering = ["order"]
 
     def __unicode__(self):
         return self.title
@@ -27,10 +29,12 @@ class Sponsor(models.Model):
     url = models.URLField(_("URL"), blank=True, verify_exists=False)
     logo = models.ImageField(_("Logo"), upload_to="files/sponsors")
     contest = models.ForeignKey(Contest, verbose_name=_("Contest"), related_name="sponsors")
+    order = models.SmallIntegerField(_("Order"), default=0)
 
     class Meta:
         verbose_name = _("Sponsor")
         verbose_name_plural = _("Sponsors")
+        ordering = ["order"]
 
     def __unicode__(self):
         return self.name
