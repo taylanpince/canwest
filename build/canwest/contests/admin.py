@@ -21,7 +21,7 @@ class ContestAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("title", "slug"), "description"),
+            "fields": (("title", "slug"), "description", "header"),
         }),
     )
 

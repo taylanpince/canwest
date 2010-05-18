@@ -9,6 +9,7 @@ class Contest(models.Model):
     title = models.CharField(_("Title"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255)
     description = models.TextField(_("Description"), blank=True)
+    header = models.ImageField(_("Header Image"), upload_to="files/contests", blank=True, null=True)
 
     class Meta:
         verbose_name = _("Contest")
