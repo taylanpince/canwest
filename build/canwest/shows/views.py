@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
 from admob.decorators import admob_analytics
-from shows.models import Show, ShowCategory
+from shows.models import Show, Channel, ShowCategory
 
 
 @admob_analytics
@@ -27,6 +27,19 @@ def category(request, category_slug):
     return render_to_response("shows/category.html", {
         "category": category,
         "USE_GLOBAL_TEMPLATE": category.global_template,
+    }, context_instance=RequestContext(request))
+
+
+@admob_analytics
+def channel(request, category_slug, slug):
+    """
+    Renders a list of shows tied to this channel
+    """
+    channel = get_object_or_404(Channel, slug=slug)
+
+    return render_to_response("shows/channel.html", {
+        "channel": channel,
+        "USE_GLOBAL_TEMPLATE": channel.category.global_template,
     }, context_instance=RequestContext(request))
 
 

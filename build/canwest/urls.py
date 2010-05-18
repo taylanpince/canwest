@@ -18,7 +18,8 @@ urlpatterns = patterns('',
     # Shows
     url(r"^shows/$", "shows.views.list", name="shows_list"),
     url(r"^shows/(?P<category_slug>[-\w]+)/$", "shows.views.category", name="shows_category"),
-    url(r"^shows/(?P<category_slug>[-\w]+)/(?P<slug>[-\w]+)/$", "shows.views.detail", name="shows_detail"),
+    url(r"^shows/(?P<category_slug>[-\w]+)/channels/(?P<slug>[-\w]+)/$", "shows.views.channel", name="shows_channel"),
+    url(r"^shows/(?P<category_slug>[-\w]+)/shows/(?P<slug>[-\w]+)/$", "shows.views.detail", name="shows_detail"),
     
     # Schedules
     url(r"^schedules/$", "schedules.views.list", name="schedules_list"),

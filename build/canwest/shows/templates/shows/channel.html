@@ -1,0 +1,16 @@
+{% extends "sub.html" %}
+
+
+{% block shows_menu %}-active{% endblock %}
+{% block title %}{{ block.super }} What's New: {{ channel.title }}{% endblock %}
+
+
+{% block content %}
+
+<img src="{{ MEDIA_URL }}images/title-{{ channel.category.slug }}.png" alt="{{ channel.category.title }}" class="header" />
+
+{% for show in channel.shows.all %}
+{% include "shows/show.html" %}
+{% endfor %}
+
+{% endblock %}

@@ -4,17 +4,31 @@
 
 
 {% block shows_menu %}-active{% endblock %}
-{% block title %}{{ block.super }} New Shows: {{ category.title }}{% endblock %}
+{% block title %}{{ block.super }} What's New: {{ category.title }}{% endblock %}
 
 
 {% block content %}
 
 <img src="{{ MEDIA_URL }}images/title-{{ category.slug }}.png" alt="{{ category.title }}" class="header" />
 
+{% with category.orphan_shows as shows %}
+{% if shows %}
 <ul>
-	{% for show in category.shows.all %}
+	{% for show in shows %}
 	<li><a href="{{ show.get_absolute_url }}"><img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" /></a></li>
 	{% endfor %}
 </ul>
+{% endif %}
+{% endwith %}
+
+{% with category.channels.all as channels %}
+{% if channels %}
+<ul>
+	{% for channel in channels  %}
+	<li><a href="{{ channel.get_absolute_url }}"><img src="{% thumbnail channel.logo.name 320x48 crop upscale %}" alt="{{ channel.title }}" /></a></li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 
 {% endblock %}

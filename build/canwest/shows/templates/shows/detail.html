@@ -1,8 +1,5 @@
 {% extends "sub.html" %}
 
-{% load thumbnail %}
-{% load markup %}
-
 
 {% block shows_menu %}-active{% endblock %}
 {% block title %}{{ block.super }} {{ show.title }}{% endblock %}
@@ -12,13 +9,6 @@
 
 <img src="{{ MEDIA_URL }}images/title-{{ show.category.slug }}.png" alt="{{ show.category.title }}" class="header" />
 
-<img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" class="header" />
-
-<div class="content">
-	{% if show.photo %}<img src="{% thumbnail show.photo.name 96x128 %}" alt="{{ show.title }}" class="right" />{% endif %}
-
-	{{ show.blurb|markdown }}
-	{{ show.description|markdown }}
-</div>
+{% include "shows/show.html" %}
 
 {% endblock %}
