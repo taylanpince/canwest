@@ -8,7 +8,7 @@ class SponsorAdmin(admin.StackedInline):
 
 
 class ContestAdmin(admin.ModelAdmin):
-    list_display = ("title", )
+    list_display = ("title", "order")
     inlines = [
         SponsorAdmin,
     ]
@@ -21,7 +21,7 @@ class ContestAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("title", "slug"), "description", "header"),
+            "fields": (("title", "slug", "order"), "description", "header"),
         }),
     )
 
