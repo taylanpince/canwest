@@ -92,12 +92,21 @@ img.header {
     margin: 0px 0px 15px 0px;
 }
 
+img.low-header {
+    margin: 10px 0px 6px 0px;
+}
+
 ul {
     margin-bottom: 15px;
 }
 
 ul li {
     line-height: 18px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #fff;
 }
 
 /* @end */
@@ -159,8 +168,13 @@ textarea {
     border: 1px solid #ccc;
 }
 
+p.padded,
 div.content {
     padding: 0px 10px 0px 10px;
+}
+
+.double-padded {
+    padding: 0px 20px 0px 20px;
 }
 
 /* @end */

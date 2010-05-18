@@ -10,12 +10,25 @@
 
 {% block content %}
 
-<div class="content">
-	{% for contest in contests %}
-	<h2 class="top-margin">{{ contest.title }}</h2>
+<img src="{{ MEDIA_URL }}images/title-contests.png" alt="Prize Details" class="low-header" />
 
+<p class="center">
+	Check out great prizes to be won during our presentation and online at <a href="http://www.canwest.com/upfront">www.canwest.com/upfront</a><br />
+	starting June 3rd.
+</p>
+
+{% for contest in contests %}
+<hr />
+
+{% if contest.header %}
+<img src="{% thumbnail contest.header.name 320x50 %}" alt="{{ contest.title }}" class="low-header" />
+{% else %}
+<h2 class="top-margin">{{ contest.title }}</h2>
+{% endif %}
+
+<div class="double-padded">
 	{{ contest.description|markdown }}
-
+	
 	{% if contest.sponsors.count %}
 	<p class="sponsors">
 		{% for sponsor in contest.sponsors.all %}
@@ -25,7 +38,8 @@
 		{% endfor %}
 	</p>
 	{% endif %}
-	{% endfor %}
 </div>
+
+{% endfor %}
 
 {% endblock %}
