@@ -10,7 +10,7 @@ def list(request):
     """
     A list of all scheduled items, grouped by day
     """
-    days = dict(DAY_CHOICES).keys()
+    days = [day[0] for day in DAY_CHOICES]
     scheduled_items = ScheduledItem.objects.all().order_by("day")
     sorted_items = sorted(scheduled_items, key=lambda item: days.index(item.day))
 
