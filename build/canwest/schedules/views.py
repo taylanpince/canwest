@@ -10,7 +10,7 @@ def list(request):
     """
     A list of all scheduled items, grouped by day
     """
-    scheduled_items = ScheduledItem.objects.all()
+    scheduled_items = ScheduledItem.objects.all().order_by("day")
 
     return render_to_response("schedules/list.html", {
         "scheduled_items": scheduled_items,
