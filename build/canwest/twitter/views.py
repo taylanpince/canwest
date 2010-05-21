@@ -64,7 +64,7 @@ def update(request):
         if response:
             cache.delete(SEARCH_RESULTS_KEY)
 
-            return "%s?sent=True" % HttpResponseRedirect(reverse("twitter_landing"))
+            return HttpResponseRedirect("%s?sent=True" % reverse("twitter_landing"))
         else:
             return HttpResponseRedirect(reverse("twitter_error"))
 
