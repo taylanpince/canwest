@@ -5,7 +5,9 @@
 
 {% block content %}
 
-<img src="{{ MEDIA_URL }}images/logo-canwest.jpg" alt="Canwest Coming Attractions" id="Logo" />
+<div class="bottom-padding">
+	<img src="{{ MEDIA_URL }}images/logo-canwest.jpg" alt="Canwest Coming Attractions" />
+</div>
 
 <ul id="MainMenu">
 	<li><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/btn-schedule-home.png" alt="Global Schedule" /></a></li>

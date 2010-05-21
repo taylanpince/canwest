@@ -47,7 +47,7 @@ a.left {
 
 p {
     line-height: 18px;
-    margin: 0px 0px 15px 0px;
+    padding: 0px 0px 15px 0px;
 }
 
 p.center {
@@ -71,11 +71,19 @@ h1 {
 h2 {
     font-size: 16px;
     font-weight: bold;
-    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
 }
 
 .top-margin {
     margin-top: 20px;
+}
+
+.top-padding {
+    padding-top: 15px !important;
+}
+
+.bottom-padding {
+    padding-bottom: 15px !important;
 }
 
 h3 {
@@ -89,19 +97,19 @@ h4 {
 img.right {
     float: right;
     display: inline;
-    margin: 0px 0px 10px 10px;
+    padding: 0px 0px 10px 10px;
 }
 
 img.header {
-    margin: 0px 0px 15px 0px;
+    padding: 0px 0px 15px 0px;
 }
 
 img.low-header {
-    margin: 10px 0px 6px 0px;
+    padding: 10px 0px 6px 0px;
 }
 
 ul {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 ul li {
@@ -113,14 +121,36 @@ hr {
     border-top: 2px solid #fff;
 }
 
+img.hr {
+    padding: 6px 0px 6px 0px;
+}
+
 /* @end */
 
 
-/* @group Menus */
+/* @group Layout */
 
 #Container {
     margin: 0px auto 0px auto;
     width: 310px;
+}
+
+table,
+tr,
+td {
+    padding: 0px;
+    margin: 0px;
+    line-height: 1px;
+    font-size: 1px;
+}
+
+tr.hidden {
+    display: none;
+    height: 0px;
+}
+
+td {
+    display: inline;
 }
 
 body.home #Container {
@@ -128,11 +158,11 @@ body.home #Container {
 }
 
 #Logo {
-    margin: 0px 0px 25px 0px;
+    padding: 0px 0px 25px 0px;
 }
 
 #ScheduleDays {
-    margin: 0px 0px 30px 0px;
+    padding: 0px 0px 30px 0px;
 }
 
 #ScheduleDays h2 {
@@ -159,12 +189,8 @@ body.home #Container {
     font-size: 10px;
 }
 
-p.sponsors img {
-    margin-right: 20px;
-}
-
 #TwitterList li {
-    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
 }
 
 textarea {
@@ -174,11 +200,22 @@ textarea {
 
 p.padded,
 div.content {
-    padding: 0px 10px 0px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .double-padded {
-    padding: 0px 20px 0px 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+ul.wide-list li {
+    padding-bottom: 5px;
+}
+
+div.prize {
+    border-top: 2px solid #fff;
+    padding: 10px 0px 15px 0px;
 }
 
 /* @end */
@@ -191,15 +228,15 @@ div.content {
     overflow: hidden;
     position: static;
     width: 310px;
-    margin: 0px 0px 45px 0px;
+    padding: 0px 0px 20px 0px;
 }
 
 #MainMenu.top-margin {
-    margin-top: 30px;
+    padding-top: 30px;
 }
 
 #TopMenu {
-    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 #TopMenu li,
@@ -222,6 +259,7 @@ div.content {
     color: #000;
     text-transform: uppercase;
     font-size: 10px;
+    padding-top: 15px;
 }
 
 body.global #FooterMenu {

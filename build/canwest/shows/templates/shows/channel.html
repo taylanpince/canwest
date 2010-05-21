@@ -5,9 +5,10 @@
 {% block title %}{{ block.super }} What's New: {{ channel.title }}{% endblock %}
 
 
-{% block content %}
+{% block header_image %}<img src="{{ MEDIA_URL }}images/title-{{ channel.category.slug }}.png" alt="{{ channel.category.title }}" />{% endblock %}
 
-<img src="{{ MEDIA_URL }}images/title-{{ channel.category.slug }}.png" alt="{{ channel.category.title }}" class="header" />
+
+{% block content %}
 
 {% for show in channel.shows.all %}
 {% include "shows/show.html" %}

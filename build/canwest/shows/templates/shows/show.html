@@ -1,9 +1,9 @@
 {% load thumbnail %}
 {% load markup %}
 
-<img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" class="header" />
+<img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" class="top-margin" />
 
-<div class="content">
+<div class="content top-padding">
 	{% if show.photo %}<img src="{% thumbnail show.photo.name 96x128 %}" alt="{{ show.title }}" class="right" />{% endif %}
 
 	{{ show.blurb|markdown }}

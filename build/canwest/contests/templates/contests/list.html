@@ -8,38 +8,38 @@
 {% block title %}{{ block.super }} Contest Info{% endblock %}
 
 
+{% block header_image %}<img src="{{ MEDIA_URL }}images/title-contests.png" alt="Prize Details" />{% endblock %}
+
+
 {% block content %}
 
-<img src="{{ MEDIA_URL }}images/title-contests.png" alt="Prize Details" class="low-header" />
-
 <p class="center">
-	Check out great prizes to be won during our presentation and online at <a href="http://www.canwest.com/upfront">www.canwest.com/upfront</a><br />
-	starting June 3rd.
+	Check out great prizes to be won during our presentation and online at <a href="http://www.canwest.com/upfront">www.canwest.com/upfront</a> starting June 3rd.
 </p>
 
 {% for contest in contests %}
-<hr />
-
-{% if contest.header %}
-<img src="{% thumbnail contest.header.name 320x50 %}" alt="{{ contest.title }}" class="low-header" />
-{% else %}
-<h2 class="top-margin">{{ contest.title }}</h2>
-{% endif %}
-
-<div class="double-padded">
-	{{ contest.description|markdown }}
-	
-	{% if contest.sponsors.count %}
-	<p class="sponsors">
-		{% for sponsor in contest.sponsors.all %}
-		{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
-		<img src="{% thumbnail sponsor.logo.name 300x100 %}" alt="{{ sponsor.name }}" />
-		{% if sponsor.url %}</a>{% endif %}
-		{% endfor %}
-	</p>
+<div class="prize">
+	{% if contest.header %}
+	<img src="{% thumbnail contest.header.name 320x50 %}" alt="{{ contest.title }}" />
+	{% else %}
+	<h2 class="top-margin">{{ contest.title }}</h2>
 	{% endif %}
-</div>
 
+	<div class="double-padded top-padding">
+		{{ contest.description|markdown }}
+	
+		{% if contest.sponsors.count %}
+		<div class="sponsors">
+			{% for sponsor in contest.sponsors.all %}
+			{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
+			<img src="{% thumbnail sponsor.logo.name 300x100 %}" alt="{{ sponsor.name }}" />
+			{% if sponsor.url %}</a>{% endif %}
+			<img src="{{ MEDIA_URL }}images/bg-spacer.png" alt="" width="20" height="20" style="width: 20px; height: 20px;" />
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+</div>
 {% endfor %}
 
 {% endblock %}

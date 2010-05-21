@@ -5,9 +5,10 @@
 {% block title %}{{ block.super }} {{ show.title }}{% endblock %}
 
 
-{% block content %}
+{% block header_image %}<img src="{{ MEDIA_URL }}images/title-{{ show.category.slug }}.png" alt="{{ show.category.title }}" />{% endblock %}
 
-<img src="{{ MEDIA_URL }}images/title-{{ show.category.slug }}.png" alt="{{ show.category.title }}" class="header" />
+
+{% block content %}
 
 {% include "shows/show.html" %}
 
