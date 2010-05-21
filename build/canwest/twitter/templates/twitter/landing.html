@@ -4,6 +4,8 @@
 {% block content %}
 
 <div class="content">
+	{% if sent %}<p>Success! Your tweet has been sent.</p>{% endif %}
+	
 	{% if form %}
 	{% include "twitter/update_form.html" %}
 	{% else %}
