@@ -34,7 +34,7 @@
 			{% if sponsor.url %}<a href="{{ sponsor.url }}" target="_blank">{% endif %}
 			<img src="{% thumbnail sponsor.logo.name 300x100 %}" alt="{{ sponsor.name }}" />
 			{% if sponsor.url %}</a>{% endif %}
-			<img src="{{ MEDIA_URL }}images/bg-spacer.png" alt="" width="20" height="20" style="width: 20px; height: 20px;" />
+			{% if not forloop.last %}<img src="{{ MEDIA_URL }}images/bg-spacer.png" alt="" width="15" height="20" style="width: 15px; height: 20px;" />{% endif %}
 			{% endfor %}
 		</div>
 		{% endif %}
