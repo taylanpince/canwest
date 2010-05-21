@@ -17,7 +17,7 @@
 	{% if shows %}
 	<ul class="wide-list">
 		{% for show in shows %}
-		<li><a href="{{ show.get_absolute_url }}"><img src="{% thumbnail show.logo.name 320x48 crop upscale %}" alt="{{ show.title }}" /></a></li>
+		<li><a href="{{ show.get_absolute_url }}"><img src="{% thumbnail show.logo.name 310x48 crop upscale %}" alt="{{ show.title }}" /></a></li>
 		{% endfor %}
 	</ul>
 	{% endif %}
@@ -27,7 +27,7 @@
 	{% if channels %}
 	<ul class="wide-list">
 		{% for channel in channels  %}
-		<li><a href="{{ channel.get_absolute_url }}"><img src="{% thumbnail channel.logo.name 320x48 crop upscale %}" alt="{{ channel.title }}" /></a></li>
+		<li><a href="{{ channel.get_absolute_url }}"><img src="{% thumbnail channel.logo.name 310x48 crop upscale %}" alt="{{ channel.title }}" /></a></li>
 		{% endfor %}
 	</ul>
 	{% endif %}
