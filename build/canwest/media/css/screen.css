@@ -125,6 +125,10 @@ img.hr {
     padding: 6px 0px 6px 0px;
 }
 
+div.double-padded ul li {
+    list-style-type: disc;
+}
+
 /* @end */
 
 
