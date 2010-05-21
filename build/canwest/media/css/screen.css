@@ -222,6 +222,10 @@ div.prize {
     padding: 10px 0px 15px 0px;
 }
 
+textarea {
+    width: 280px;
+}
+
 /* @end */
 
 

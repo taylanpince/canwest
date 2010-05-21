@@ -42,6 +42,7 @@ def landing(request):
     return render_to_response("twitter/landing.html", {
         "form": form,
         "results": results.get("results", None),
+        "sent": request.GET.has_key("sent"),
     }, context_instance=RequestContext(request))
 
 
@@ -63,7 +64,7 @@ def update(request):
         if response:
             cache.delete(SEARCH_RESULTS_KEY)
 
-            return HttpResponseRedirect(reverse("twitter_landing"))
+            return "%s?sent=True" % HttpResponseRedirect(reverse("twitter_landing"))
         else:
             return HttpResponseRedirect(reverse("twitter_error"))
 
@@ -107,7 +108,7 @@ def auth_complete(request):
     token = oauth.OAuthToken.from_string(unauthed_token)   
 
     if token.key != request.GET.get("oauth_token", "no-token"):
-        return HttpResponseRedirect(reverse("twitter_error"))
+        return HttpResponseRedirect(reverse("twitter_landing"))
 
     access_token = exchange_request_token_for_access_token(CONSUMER, CONNECTION, token)
     response = HttpResponseRedirect(reverse("twitter_landing"))
