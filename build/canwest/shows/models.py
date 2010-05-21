@@ -9,10 +9,12 @@ class ShowCategory(models.Model):
     title = models.CharField(_("Title"), max_length=255)
     slug = models.SlugField(_("Slug"), max_length=255)
     global_template = models.BooleanField(_("Use Global template"), default=False)
+    order = models.SmallIntegerField(_("Order"), default=0)
 
     class Meta:
         verbose_name = _("Show Category")
         verbose_name_plural = _("Show Categories")
+        ordering = ["order"]
 
     def __unicode__(self):
         return self.title
@@ -38,10 +40,12 @@ class Channel(models.Model):
     slug = models.SlugField(_("Slug"), max_length=255)
     logo = models.ImageField(_("Logo"), upload_to="files/shows")
     category = models.ForeignKey(ShowCategory, verbose_name=_("Category"), related_name="channels")
+    order = models.SmallIntegerField(_("Order"), default=0)
 
     class Meta:
         verbose_name = _("Channel")
         verbose_name_plural = _("Channels")
+        ordering = ["order"]
 
     def __unicode__(self):
         return self.title
@@ -66,10 +70,12 @@ class Show(models.Model):
     photo = models.ImageField(_("Photo"), upload_to="files/shows", blank=True)
     category = models.ForeignKey(ShowCategory, verbose_name=_("Category"), related_name="shows")
     channel = models.ForeignKey(Channel, verbose_name=_("Channel"), related_name="shows", blank=True, null=True)
+    order = models.SmallIntegerField(_("Order"), default=0)
 
     class Meta:
         verbose_name = _("Show")
         verbose_name_plural = _("Shows")
+        ordering = ["order"]
 
     def __unicode__(self):
         return self.title

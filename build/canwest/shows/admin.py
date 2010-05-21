@@ -4,7 +4,7 @@ from shows.models import Show, Channel, ShowCategory
 
 
 class ShowAdmin(admin.ModelAdmin):
-    list_display = ("title", "category", )
+    list_display = ("title", "category", "order")
     list_filter = ("category", )
     search_fields = ("title", "slug", "blurb", "description")
     save_on_top = True
@@ -14,13 +14,13 @@ class ShowAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("title", "slug"), ("category", "channel"), "blurb", "description", "logo", "photo"),
+            "fields": (("title", "slug", "order"), ("category", "channel"), "blurb", "description", "logo", "photo"),
         }),
     )
 
 
 class ChannelAdmin(admin.ModelAdmin):
-    list_display = ("title", "category", )
+    list_display = ("title", "category", "order")
     list_filter = ("category", )
     search_fields = ("title", "slug")
     save_on_top = True
@@ -30,13 +30,13 @@ class ChannelAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("title", "slug"), "category", "logo"),
+            "fields": (("title", "slug", "order"), "category", "logo"),
         }),
     )
 
 
 class ShowCategoryAdmin(admin.ModelAdmin):
-    list_display = ("title", "global_template")
+    list_display = ("title", "order", "global_template")
     list_filter = ("global_template", )
     search_fields = ("title", "slug")
     save_on_top = True
@@ -46,7 +46,7 @@ class ShowCategoryAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            "fields": (("title", "slug"), "global_template"),
+            "fields": (("title", "slug", "order"), "global_template"),
         }),
     )
 
