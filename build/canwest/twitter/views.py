@@ -69,7 +69,7 @@ def update(request):
     form = StatusUpdateForm(request.POST)
 
     if form.is_valid():
-        access_token = request.session.get("access_token", None)
+        access_token = request.COOKIES.get(TWITTER_AUTH_TOKEN_KEY, None)
 
         if not access_token:
             return HttpResponseRedirect(reverse("twitter_error"))
