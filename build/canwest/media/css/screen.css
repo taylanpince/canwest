@@ -218,6 +218,10 @@ div.content {
     padding-right: 20px;
 }
 
+ul.wide-list {
+	list-style: none;
+}
+
 ul.wide-list li {
     padding-bottom: 5px;
 }
