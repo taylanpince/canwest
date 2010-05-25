@@ -19,6 +19,8 @@ CONSUMER = oauth.OAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET)
 CONNECTION = httplib.HTTPSConnection(SERVER)
 SEARCH_CONNECTION = httplib.HTTPConnection(SEARCH_SERVER)
 SEARCH_RESULTS_KEY = "twitter_search_results"
+TWITTER_AUTH_TOKEN_KEY = "twitter_auth_token"
+TWITTER_UNAUTH_TOKEN_KEY = "twitter_unauth_token"
 
 
 @admob_analytics
@@ -26,7 +28,8 @@ def landing(request):
     """
     Twitter landing page with status update form and search results
     """
-    if request.session.has_key("access_token"):
+    #if request.session.has_key("access_token"):
+    if request.COOKIES.get(TWITTER_AUTH_TOKEN_KEY, None):
         form = StatusUpdateForm()
     else:
         form = None
@@ -78,7 +81,8 @@ def auth_clear(request):
     Remove authentication
     """
     response = HttpResponseRedirect(reverse("twitter_landing"))
-    request.session.clear()
+
+    response.delete_cookie(TWITTER_AUTH_TOKEN_KEY)
 
     return response
 
@@ -91,7 +95,8 @@ def auth(request):
     auth_url = get_authorisation_url(CONSUMER, token)
     response = HttpResponseRedirect(auth_url)
 
-    request.session["unauthed_token"] = token.to_string()
+    #request.session["unauthed_token"] = token.to_string()
+    response.set_cookie(TWITTER_UNAUTH_TOKEN_KEY, token.to_string())
 
     return response
 
@@ -100,7 +105,8 @@ def auth_complete(request):
     """
     Validate and save Twitter auth token
     """
-    unauthed_token = request.session.get("unauthed_token", None)
+    #unauthed_token = request.session.get("unauthed_token", None)
+    unauthed_token = request.COOKIES.get(TWITTER_UNAUTH_TOKEN_KEY, None)
 
     if not unauthed_token:
         return HttpResponseRedirect(reverse("twitter_error"))
@@ -113,7 +119,9 @@ def auth_complete(request):
     access_token = exchange_request_token_for_access_token(CONSUMER, CONNECTION, token)
     response = HttpResponseRedirect(reverse("twitter_landing"))
 
-    request.session["access_token"] = access_token.to_string()
+    #request.session["access_token"] = access_token.to_string()
+    response.set_cookie(TWITTER_AUTH_TOKEN_KEY, access_token.to_string())
+    response.delete_cookie(TWITTER_UNAUTH_TOKEN_KEY)
 
     return response
 
