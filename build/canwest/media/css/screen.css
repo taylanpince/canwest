@@ -100,6 +100,12 @@ img.right {
     padding: 0px 0px 10px 10px;
 }
 
+img.left {
+    float: left;
+    display: inline;
+    padding: 0px 0px 0px 0px;
+}
+
 img.header {
     padding: 0px 0px 15px 0px;
 }
@@ -170,9 +176,8 @@ body.home #Container {
 }
 
 #ScheduleDays h2 {
-    margin: 0px 0px 6px 0px;
-    padding: 4px 0px 2px 14px;
-    background: transparent url("../images/icon-global-arrow.png") top left no-repeat;
+    padding: 4px 0px 6px 6px;
+    margin-left: 6px;
 }
 
 #ScheduleDays ul {

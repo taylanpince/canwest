@@ -25,7 +25,10 @@
 
 <div id="ScheduleDays">
 	{% for day in days %}
-	<h2 id="{{ day.grouper|lower }}">{{ day.grouper|upper }}</h2>
+	<img src="{{ MEDIA_URL }}images/icon-global-arrow.png" alt="" class="left" /> 
+	<h2 id="{{ day.grouper|lower }}">
+		{{ day.grouper|upper }}
+	</h2>
 	<ul>
 		{% for item in day.list %}
 		<li class="{% if forloop.counter|divisibleby:"2" %}even{% else %}odd{% endif %}">
