@@ -6,7 +6,7 @@ class StatusUpdateForm(forms.Form):
     """
     A simple form for updating user's Twitter status
     """
-    status = forms.CharField(label=_("Status"), initial="#Canwest", widget=forms.Textarea)
+    status = forms.CharField(label=_("Status"), initial="#canwestca", widget=forms.Textarea)
 
     def clean_status(self):
         data = self.cleaned_data.get("status", None)
