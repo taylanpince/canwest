@@ -23,7 +23,9 @@ def device(request):
         HALF_WIDTH = 154
         THUMB_WIDTH = 100
     elif request.device.get("mobileDevice", False) and request.device.get("osRim", False):
-        DEVICE_BLACKBERRY_450 = True
+        DEVICE_BLACKBERRY_500 = True
+        FULL_WIDTH = 478
+        HALF_WIDTH = 239
     else:
         DEVICE_DESKTOP = True
 
