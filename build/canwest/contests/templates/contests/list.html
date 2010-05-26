@@ -21,7 +21,7 @@
 {% for contest in contests %}
 <div class="prize">
 	{% if contest.header %}
-	<img src="{% thumbnail contest.header.name 480x72 %}" alt="{{ contest.title }}" width="{{ FULL_WIDTH }}" />
+	<img src="{{ contest.header.url }}" alt="{{ contest.title }}" width="{{ FULL_WIDTH }}" />
 	{% else %}
 	<h2 class="top-margin">{{ contest.title }}</h2>
 	{% endif %}
