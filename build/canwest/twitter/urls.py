@@ -3,6 +3,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('twitter.views',
     url(r'^$', 'landing', name='twitter_landing'),
+    url(r'^tweet/$', 'landing_tweet', name='twitter_landing_tweet'),
     url(r'^auth/$', 'landing_auth', name='twitter_landing_auth'),
     url(r'^auth/begin/$', 'auth', name='twitter_auth'),
     url(r'^auth/complete/$', 'auth_complete', name='twitter_auth_complete'),

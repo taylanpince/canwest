@@ -45,14 +45,19 @@ def landing_common(request, form=None):
 @admob_analytics
 def landing(request):
     """
-    Twitter landing page with status update form and search results
+    Twitter landing page redirection point
     """
     if request.COOKIES.get(TWITTER_AUTH_TOKEN_KEY, None):
-        form = StatusUpdateForm()
+        return HttpResponseRedirect(reverse("twitter_landing_tweet"))
     else:
         return HttpResponseRedirect(reverse("twitter_landing_auth"))
 
-    return landing_common(request, form)
+
+def landing_tweet(request):
+    """
+    Twitter landing page with tweet form
+    """
+    return landing_common(request, StatusUpdateForm())
 
 
 def landing_auth(request):
