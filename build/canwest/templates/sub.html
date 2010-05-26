@@ -5,28 +5,21 @@
 
 {% block header %}
 
-{# <ul id="TopMenu"> #}
-{# 	<li><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/btn-schedule{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block schedule_menu %}{% endblock %}.png" alt="Global Schedule" /></a></li> #}
-{# 	<li><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/btn-contest{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block contest_menu %}{% endblock %}.png" alt="Prizes" /></a></li> #}
-{# 	<li><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/btn-shows{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block shows_menu %}{% endblock %}.png" alt="What's New?" /></a></li> #}
-{# 	<li><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/btn-twitter{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block twitter_menu %}{% endblock %}.png" alt="Twitter" /></a></li> #}
-{# </ul> #}
-
-<table width="310" cellspacing="0" cellpadding="0" border="0">
+<table id="TopMenu" width="100%" cellspacing="0" cellpadding="0" border="0">
 	<tr>
-		<td width="161" height="37"><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/btn-schedule{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block schedule_menu %}{% endblock %}.png" alt="Global Schedule" /></a></td>
-		<td width="147" height="37"><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/btn-contest{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block contest_menu %}{% endblock %}.png" alt="Prizes" /></a></td>
+		<td><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/large/btn-schedule{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block schedule_menu %}{% endblock %}.jpg" alt="Global Schedule" width="{{ HALF_WIDTH }}" /></a></td>
+		<td><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/large/btn-prizes{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block contest_menu %}{% endblock %}.jpg" alt="Contests" width="{{ HALF_WIDTH }}" /></a></td>
 	</tr>
 	<tr>
-		<td width="161" height="25"><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/btn-shows{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block shows_menu %}{% endblock %}.png" alt="What's New?" /></a></td>
-		<td width="147" height="25"><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/btn-twitter{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block twitter_menu %}{% endblock %}.png" alt="Twitter" /></a></td>
+		<td><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/large/btn-shows{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block shows_menu %}{% endblock %}.jpg" alt="What's New?" width="{{ HALF_WIDTH }}" /></a></td>
+		<td><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/large/btn-twitter{% if USE_GLOBAL_TEMPLATE %}-global{% endif %}{% block twitter_menu %}{% endblock %}.jpg" alt="Twitter" width="{{ HALF_WIDTH }}" /></a></td>
 	</tr>
-	<tr height="38">
-		<td width="310" height="38" colspan="2">{% block header_image %}{% endblock %}</td>
+	<tr>
+		<td colspan="2">{% block header_image %}{% endblock %}</td>
 	</tr>
 	{% block header_margin %}
 	<tr>
-		<td width="310" height="15" colspan="2">&nbsp;</td>
+		<td height="20" colspan="2">&nbsp;</td>
 	</tr>
 	{% endblock %}
 </table>

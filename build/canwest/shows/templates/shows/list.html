@@ -5,15 +5,17 @@
 
 
 {% block header_margin %}{% endblock %}
-{% block header_image %}<img src="{{ MEDIA_URL }}images/title-empty.png" alt="" />{% endblock %}
+{% block header_image %}<img src="{{ MEDIA_URL }}images/large/title-empty.png" alt="" width="{{ FULL_WIDTH }}" />{% endblock %}
 
 
 {% block content %}
 
-<ul id="MainMenu">
+<table id="TopMenu" width="100%" cellspacing="0" cellpadding="0" border="0">
 	{% for category in categories %}
-	<li><a href="{{ category.get_absolute_url }}"><img src="{{ MEDIA_URL }}images/btn-{{ category.slug }}.png" alt="{{ category.title }}" /></a></li>
+	{% if forloop.counter0|divisibleby:"2" %}<tr>{% endif %}
+	<td><a href="{{ category.get_absolute_url }}"><img src="{{ MEDIA_URL }}images/large/btn-{{ category.slug }}.jpg" alt="{{ category.title }}" width="{{ HALF_WIDTH }}" /></a></td>
+	{% if forloop.counter|divisibleby:"2" %}</tr>{% endif %}
 	{% endfor %}
-</ul>
+</table>
 
 {% endblock %}

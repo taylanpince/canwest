@@ -5,15 +5,20 @@
 
 {% block content %}
 
-<div class="bottom-padding">
-	<img src="{{ MEDIA_URL }}images/logo-canwest.jpg" alt="Canwest Coming Attractions" />
-</div>
-
-<ul id="MainMenu">
-	<li><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/btn-schedule-home.png" alt="Global Schedule" /></a></li>
-	<li><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/btn-contest-home.png" alt="Prizes" /></a></li>
-	<li><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/btn-shows-home.png" alt="What's New?" /></a></li>
-	<li><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/btn-twitter-home.png" alt="Twitter" /></a></li>
-</ul>
+<table id="TopMenu" width="100%" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td colspan="2" width="100%">
+			<img src="{{ MEDIA_URL }}images/large/logo-canwest.jpg" alt="Canwest Coming Attractions" width="{{ FULL_WIDTH }}" />
+		</td>
+	</tr>
+	<tr>
+		<td><a href="{% url schedules_list %}"><img src="{{ MEDIA_URL }}images/large/btn-schedule-home.jpg" alt="Global Schedule" width="{{ HALF_WIDTH }}" /></a></td>
+		<td><a href="{% url contests_list %}"><img src="{{ MEDIA_URL }}images/large/btn-prizes-home.jpg" alt="Prizes" width="{{ HALF_WIDTH }}" /></a></td>
+	</tr>
+	<tr>
+		<td><a href="{% url shows_list %}"><img src="{{ MEDIA_URL }}images/large/btn-shows-home.jpg" alt="What's New?" width="{{ HALF_WIDTH }}" /></a></td>
+		<td><a href="{% url twitter_landing %}"><img src="{{ MEDIA_URL }}images/large/btn-twitter-home.jpg" alt="Twitter" width="{{ HALF_WIDTH }}" /></a></td>
+	</tr>
+</table>
 
 {% endblock %}

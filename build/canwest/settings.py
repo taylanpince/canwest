@@ -36,6 +36,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'devices.middleware.DeviceDetectMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "devices.context_processors.device",
 )
 
 ROOT_URLCONF = 'canwest.urls'
@@ -58,6 +67,7 @@ INSTALLED_APPS = (
     'south',
     
     'contests',
+    'devices',
     'schedules',
     'shows',
     'twitter',

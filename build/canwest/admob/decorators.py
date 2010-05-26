@@ -13,7 +13,7 @@ def admob_analytics(view):
     
     """
     def _dec(request, *args, **kwargs):
-        analytics(request, params=None, fail_silently=False)
+        analytics(request, params=None, fail_silently=True)
         request.has_admob = True
         return view(request, *args, **kwargs)
     return _dec

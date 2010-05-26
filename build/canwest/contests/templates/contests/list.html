@@ -8,7 +8,8 @@
 {% block title %}{{ block.super }} Contest Info{% endblock %}
 
 
-{% block header_image %}<img src="{{ MEDIA_URL }}images/title-contests.png" alt="Prize Details" />{% endblock %}
+{% block header_margin %}{% endblock %}
+{% block header_image %}<img src="{{ MEDIA_URL }}images/large/title-prizes.png" alt="Prize Details" width="{{ FULL_WIDTH }}" />{% endblock %}
 
 
 {% block content %}
@@ -20,7 +21,7 @@
 {% for contest in contests %}
 <div class="prize">
 	{% if contest.header %}
-	<img src="{% thumbnail contest.header.name 320x50 %}" alt="{{ contest.title }}" />
+	<img src="{% thumbnail contest.header.name 480x72 %}" alt="{{ contest.title }}" width="{{ FULL_WIDTH }}" />
 	{% else %}
 	<h2 class="top-margin">{{ contest.title }}</h2>
 	{% endif %}

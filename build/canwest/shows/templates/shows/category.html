@@ -7,7 +7,7 @@
 {% block title %}{{ block.super }} What's New: {{ category.title }}{% endblock %}
 
 
-{% block header_image %}<img src="{{ MEDIA_URL }}images/title-{{ category.slug }}.png" alt="{{ category.title }}" />{% endblock %}
+{% block header_image %}<img src="{{ MEDIA_URL }}images/large/title-{{ category.slug }}.png" alt="{{ category.title }}" width="{{ FULL_WIDTH }}" />{% endblock %}
 
 
 {% block content %}
@@ -17,7 +17,7 @@
 	{% if shows %}
 	<ul class="wide-list">
 		{% for show in shows %}
-		<li><a href="{{ show.get_absolute_url }}"><img src="{% thumbnail show.logo.name 310x48 crop upscale %}" alt="{{ show.title }}" /></a></li>
+		<li><a href="{{ show.get_absolute_url }}"><img src="{% thumbnail show.logo.name 480x70 crop upscale %}" alt="{{ show.title }}" width="{{ FULL_WIDTH }}" /></a></li>
 		{% endfor %}
 	</ul>
 	{% endif %}
@@ -27,7 +27,7 @@
 	{% if channels %}
 	<ul class="wide-list">
 		{% for channel in channels  %}
-		<li><a href="{{ channel.get_absolute_url }}"><img src="{% thumbnail channel.logo.name 310x48 crop upscale %}" alt="{{ channel.title }}" /></a></li>
+		<li><a href="{{ channel.get_absolute_url }}"><img src="{% thumbnail channel.logo.name 480x70 crop upscale %}" alt="{{ channel.title }}" width="{{ FULL_WIDTH }}" /></a></li>
 		{% endfor %}
 	</ul>
 	{% endif %}

@@ -11,16 +11,11 @@ body {
     color: #fff;
     line-height: 18px;
     font: 12px Helvetica, Arial, sans-serif;
-    background: #ff821d url("../images/bg-regular.png") top left repeat-x;
-}
-
-body.home {
-    background-image: url("../images/bg-home.png");
+    background-color: #ff821d;
 }
 
 body.global {
     background-color: #000;
-    background-image: url("../images/bg-global.png");
 }
 
 a,
@@ -133,6 +128,7 @@ img.hr {
 
 div.double-padded ul li {
     list-style-type: disc;
+    margin-left: 15px;
 }
 
 /* @end */
@@ -142,7 +138,7 @@ div.double-padded ul li {
 
 #Container {
     margin: 0px auto 0px auto;
-    width: 310px;
+    width: 480px;
 }
 
 table,
@@ -208,7 +204,7 @@ body.home #Container {
 }
 
 textarea {
-    width: 298px;
+    width: 90%;
     border: 1px solid #ccc;
 }
 
@@ -245,30 +241,12 @@ textarea {
 
 /* @group Menus */
 
-#TopMenu,
-#MainMenu {
-    overflow: hidden;
-    position: static;
-    width: 310px;
-    padding: 0px 0px 20px 0px;
-}
-
-#MainMenu.top-margin {
-    padding-top: 30px;
-}
-
 #TopMenu {
-    padding-bottom: 0px;
+    width: 100%;
 }
 
-#TopMenu li,
-#MainMenu li {
-    float: left;
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-    line-height: 1px !important;
-    font-size: 1px !important;
+#TopMenu td {
+    width: 50%;
 }
 
 #ScheduleMenu {
