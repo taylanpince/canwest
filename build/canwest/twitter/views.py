@@ -30,7 +30,7 @@ def landing_common(request, form=None):
     results = cache.get(SEARCH_RESULTS_KEY)
 
     if not results:
-        json = get_search_results(SEARCH_CONNECTION, "#Canwest")
+        json = get_search_results(SEARCH_CONNECTION, "#canwestca")
         results = simplejson.loads(json)
 
         cache.set(SEARCH_RESULTS_KEY, results, 30 * 60)
