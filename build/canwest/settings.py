@@ -45,6 +45,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "devices.context_processors.device",
+    "devices.context_processors.google_analytics_path",
 )
 
 ROOT_URLCONF = 'canwest.urls'
@@ -79,6 +80,8 @@ TWITTER_CONSUMER_SECRET = 'RZrqynBZwhewuhpZx3nkTvAKnawjTBYMVNPI73BdHU'
 ADMOB_PUBLISHER_ID = 'a14beda375ab4fa'
 ADMOB_ANALYTICS_ID = 'a14beda375ab4fa'
 ADMOB_TEST = False
+
+GOOGLE_ANALYTICS_ACCOUNT = 'UA-16330065-2'
 
 DEVICE_ATLAS_PATH = os.path.join(os.path.realpath(os.path.dirname(__file__)), 'devices/devices.json')
 

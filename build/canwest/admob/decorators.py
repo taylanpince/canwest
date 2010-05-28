@@ -10,7 +10,6 @@ def admob_analytics(view):
     """
     Construct an AdMob analytics request.
     Requires admob.middleware.AdMobMiddleware.
-    
     """
     def _dec(request, *args, **kwargs):
         analytics(request, params=None, fail_silently=True)

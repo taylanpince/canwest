@@ -42,7 +42,6 @@ def landing_common(request, form=None):
     }, context_instance=RequestContext(request))
 
 
-@admob_analytics
 def landing(request):
     """
     Twitter landing page redirection point
@@ -53,6 +52,7 @@ def landing(request):
         return HttpResponseRedirect(reverse("twitter_landing_auth"))
 
 
+@admob_analytics
 def landing_tweet(request):
     """
     Twitter landing page with tweet form
@@ -60,6 +60,7 @@ def landing_tweet(request):
     return landing_common(request, StatusUpdateForm())
 
 
+@admob_analytics
 def landing_auth(request):
     """
     Twitter landing page for non-authorized users
