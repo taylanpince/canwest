@@ -71,7 +71,7 @@ def device(request):
         FULL_WIDTH = 320
         HALF_WIDTH = 160
         THUMB_WIDTH = 100
-    elif request.device.get("mobileDevice", False) and request.device.get("osRim", False) and request.device.get("displayWidth") <= 320:
+    elif (request.device.get("mobileDevice", False) and request.device.get("osRim", False) and request.device.get("displayWidth") <= 320) or "BlackBerry8530" in request.device.get("_matched", ""):
         DEVICE_BLACKBERRY_450 = True
         FULL_WIDTH = 308
         HALF_WIDTH = 154
